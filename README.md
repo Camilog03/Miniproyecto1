@@ -29,7 +29,7 @@ Este proyecto es un simulador de batallas Pokémon desarrollado en **Java**, apl
 git clone https://github.com/tu_usuario/SimuladorPokemon.git
 ```
 2️⃣ Abrir el proyecto en **IntelliJ IDEA** o cualquier IDE de Java.  
-3️⃣ Ejecutar la clase `Main.java` y seguir las instrucciones en consola.
+3️⃣ Ejecutar la clase `App.java` y seguir las instrucciones en consola.
 
 ---
 
