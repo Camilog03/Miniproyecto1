@@ -13,25 +13,6 @@ Este proyecto es un simulador de batallas Pokémon desarrollado en **Java**, apl
 
 ---
 
-## 🏗️ Estructura del Proyecto
-```
-📂 Miniproyecto 1
- ├── 📂 src
- │   ├── 📂 Pokemons
- │   │   ├── Pokemon.java
- │   │   ├── FirePokemon.java
- │   │   ├── WaterPokemon.java
- │   │   ├── Type.java
- │   ├── 📂 Actions
- │   │   ├── src.actions.Attack.java
- │   ├── 📂 Trainers
- │   │   ├── src.characters.Trainer.java
- │   ├── Main.java
- ├── README.md
-```
-
----
-
 ## 👥 Integrantes
 👤 **Paula Jimena Bohórquez Bermúdez**  
 👤 **Manuela Delgado Aguirre**  

@@ -10,28 +10,28 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         //Intro
-        System.out.println("------------BIENVENIDO MAESTRO POKEMÓN------------");
-        System.out.println("Para empezar este viaje repleto de batallas... \nIngresa los nombres de tus entrenadores");
+        System.out.println("¡Bienvenido al mundo Pokémon, entrenador!");
+        System.out.println("¡Prepárate para una aventura llena de batallas épicas! \nPor favor, ingresa los nombres de los entrenadores que se enfrentarán.");
 
         //Creating trainers
-        System.out.print("Entrenador 1: ");
+        System.out.print("Nombre del Entrenador 1: ");
         Trainer trainer1 = new Trainer(scanner.nextLine());
-        System.out.print("Entrenador 2: ");
+        System.out.print("Nombre del Entrenador 2: ");
         Trainer trainer2 = new Trainer(scanner.nextLine());
 
-        System.out.println("\n\n------------Entrenador 1------------\n\n");
+        System.out.println("\n\n¡Es hora de que el Entrenador 1 forme su equipo Pokémon!\n\n");
 
         menuTrainerDecisions(trainer1, scanner);
 
-        System.out.println("\n\n------------Entrenador 2------------\n\n");
+        System.out.println("\n\n¡Ahora es el turno del Entrenador 2 para formar su equipo Pokémon!\n\n");
 
         menuTrainerDecisions(trainer2, scanner);
 
         byte round = 1;
 
-        while(true){
+        while (true) {
 
-            System.out.println("\n\n------Seleccion de Pokemones------");
+            System.out.println("\n\n------ ¡Es momento de elegir a tus Pokémon para la batalla! ------");
             trainer1.showPokemons();
             Pokemon po1 = trainer1.selectPokemon(scanner);
             scanner.nextLine();
@@ -40,7 +40,7 @@ public class App {
             Pokemon po2 = trainer2.selectPokemon(scanner);
             scanner.nextLine();
 
-            System.out.println("\n\n------ Batalla Ronda #"+ round +" ------");
+            System.out.println("\n\n------ ¡Comienza la Batalla de la Ronda #" + round + "! ------");
 
             Pokemon attacker = po1;
             Pokemon defender = po2;
@@ -51,28 +51,28 @@ public class App {
             }
             while (po1.isAlive() && po2.isAlive()) {
 
-                System.out.println( attacker.getName() + " ataca a " + defender.getName());
+                System.out.println(attacker.getName() + " lanza un ataque feroz contra " + defender.getName() + "!");
                 attacker.doAttack(defender, scanner);
 
                 scanner.nextLine();
 
-                System.out.println("\n\n" + defender.getName() + " tiene " + defender.getHp() + " HP");
+                System.out.println("\n\n¡" + defender.getName() + " tiene " + defender.getHp() + " puntos de vida restantes!");
 
-                if(!defender.isAlive()){
-                    System.out.println(defender.getName() + " ha sido derrotado");
-                    System.out.println(attacker.getName() + " ha ganado la batalla");
+                if (!defender.isAlive()) {
+                    System.out.println("¡" + defender.getName() + " ha caído en combate!");
+                    System.out.println("¡" + attacker.getName() + " es el vencedor de esta batalla!");
                     break;
                 }
-                System.out.println("\n\nTurno de " + defender.getName() + " para atacar");
+                System.out.println("\n\n¡Es el turno de " + defender.getName() + " para contraatacar!");
 
                 //Change the attacker and defender
                 Pokemon temp = attacker;
                 attacker = defender;
                 defender = temp;
             }
-            if(round == 3){
+            if (round == 3) {
                 break;
-            }else{
+            } else {
                 round++;
             }
         }
@@ -82,15 +82,15 @@ public class App {
 
     public static void menuTrainerDecisions(Trainer trainer, Scanner scanner) {
         //Pokemon assignation for trainers
-        System.out.println("\nEntrenador " + trainer.getTrainerName() + " ¿Que deseas hacer? ");
-        System.out.println("1. Crear mi propio equipo \n2. Dame un equipo aleatorio");
-        System.out.print("Escribe tu opción: ");
+        System.out.println("\nEntrenador " + trainer.getTrainerName() + ", ¿cómo deseas formar tu equipo Pokémon?");
+        System.out.println("1. Crear mi propio equipo Pokémon \n2. Recibir un equipo Pokémon al azar");
+        System.out.print("Elige una opción: ");
         int option = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
 
         while (option != 1 && option != 2) {
-            System.out.println("Digita una opción válida");
-            System.out.print("Escribe tu opción: ");
+            System.out.println("Por favor, elige una opción válida.");
+            System.out.print("Elige una opción: ");
             option = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
         }
@@ -107,13 +107,13 @@ public class App {
         }
     }
 
-    public static void winner(Trainer trainer1, Trainer trainer2){
-        for(int i = 0; i < trainer1.getSelectPokemonslist().size(); i++){
-            if(trainer1.getSelectPokemonslist().get(i).isAlive()){
-                System.out.println("El ganador es " + trainer1.getTrainerName());
+    public static void winner(Trainer trainer1, Trainer trainer2) {
+        for (int i = 0; i < trainer1.getSelectPokemonslist().size(); i++) {
+            if (trainer1.getSelectPokemonslist().get(i).isAlive()) {
+                System.out.println("¡El gran vencedor es " + trainer1.getTrainerName() + "! ¡Felicidades, Maestro Pokémon!");
                 break;
-            }else if(trainer2.getSelectPokemonslist().get(i).isAlive()){
-                System.out.println("El ganador es " + trainer2.getTrainerName());
+            } else if (trainer2.getSelectPokemonslist().get(i).isAlive()) {
+                System.out.println("¡El gran vencedor es " + trainer2.getTrainerName() + "! ¡Felicidades, Maestro Pokémon!");
                 break;
             }
         }
