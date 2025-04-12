@@ -120,18 +120,16 @@ public class Trainer {
 
             scanner.nextLine();
 
-            System.out.println("\n-----------Types of Pokemons----------");
-            byte counter = 1;
-            for (Type types : Type.values()) {
-                System.out.println(counter + ". " + types);
-                counter++;
+            System.out.println("\n-----------Tipos de Pokemon----------");
+            for (Type type : Type.values()) {
+                System.out.println("- " + type);
             }
 
             boolean option = false;
             Type type = null;
             //To receive a valid option
             while (!option) {
-                System.out.print("\nIngresa el tipo de tu pokemon:");
+                System.out.print("\nDigita el tipo de tu pokemon:");
                 String election = scanner.nextLine().toUpperCase();
 
                 for (Type t : Type.values()) {
